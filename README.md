@@ -18,7 +18,7 @@
 Projeto de consumo da API pública swapi.dev utilizando React
 
 ## Preview
-Acesse clicando <a target="_blank" href="#">aqui</a>!
+Acesse clicando <a target="_blank" href="https://starwars-react-silk.vercel.app/">aqui</a>!
 
 ## Tecnologias
 <a href="https://pt-br.reactjs.org/">React</a><br>
