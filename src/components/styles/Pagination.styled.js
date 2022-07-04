@@ -12,6 +12,10 @@ export const UlBody = styled.ul`
     gap: 0.5rem;
     margin-bottom: 1rem;
     animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+    justify-content: center;
+    @media(min-width: ${({ theme }) => theme.screens.sm}){
+        justify-content: unset;
+    }
 `
 
 const Li = styled.li`
