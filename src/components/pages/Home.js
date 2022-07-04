@@ -1,6 +1,12 @@
 import { ImgWrapper, P } from "../styles/Home.styled";
+import { useEffect } from "react";
+import buildTitle from "../../functions/buildTitle";
 
-export default function Home(){
+export default function Home({ title}){
+    useEffect(() => {
+        document.title = buildTitle(title);
+    }, [title]);
+
     return (
         <>
             <ImgWrapper>

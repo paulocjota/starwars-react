@@ -3,14 +3,17 @@ import axios from "axios";
 import {
     API_BASE_URL,
     DEFAULT_ERROR_MESSAGE,
-    IS_DEVELOPMENT_ENV
+    IS_DEVELOPMENT_ENV,
+    TITLE_PREFIX,
+    TITLE_SUFIX
 } from "../../Config"
 import { Planet } from '../../classes/Planet'
 import { Planets as PlanetsComponent } from '../Planets'
 import buildSearchParams from '../../functions/buildSearchParams'
 import _ from 'lodash'
+import buildTitle from '../../functions/buildTitle';
 
-export default function Planets(){
+export default function Planets({ title }){
     const [planets, setPlanets] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [totalCount, setTotalCount] = useState(0)
@@ -18,6 +21,10 @@ export default function Planets(){
     const [currentPage, setCurrentPage] = useState(1)
     const [hasError, setHasError] = useState(false)
     const [error, setError] = useState('')
+
+    useEffect(() => {
+        document.title = buildTitle(title);
+    }, [title]);
 
     useEffect(() => {
         fetchPlanets()

@@ -2,6 +2,8 @@ export const API_BASE_URL = 'https://swapi.dev/api'
 export const IS_DEVELOPMENT_ENV = process.env.NODE_ENV === 'development'
 export const IS_PRODUCTION_ENV = process.env.NODE_ENV === 'production'
 export const DEFAULT_ERROR_MESSAGE = 'Ocorreu um erro! Por favor, tente atualizar a página através do botão F5 ou tente novamente mais tarde.'
+export const TITLE_PREFIX = ''
+export const TITLE_SUFIX = ' - Star Wars API React Portfolio Project'
 
 export const CHARACTERS = {
     IMAGES: [

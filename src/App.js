@@ -26,11 +26,11 @@ export default function App() {
                     <Header />
                     <Main>
                         <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/characters" element={<Characters />} />
-                            <Route path="/character/:id" element={<Character />} />
-                            <Route path="/planets" element={<Planets />} />
-                            <Route path="/planet/:id" element={<Planet />} />
+                            <Route path="/" element={<Home title="Início" />} />
+                            <Route path="/characters" element={<Characters title="Personagens" />} />
+                            <Route path="/character/:id" element={<Character title="Personagem" />} />
+                            <Route path="/planets" element={<Planets title="Planetas" />} />
+                            <Route path="/planet/:id" element={<Planet title="Planeta" />} />
                         </Routes>
                     </Main>
                     <Footer />

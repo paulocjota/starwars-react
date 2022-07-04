@@ -3,18 +3,23 @@ import { useEffect, useState } from "react";
 import {
     API_BASE_URL,
     DEFAULT_ERROR_MESSAGE,
-    IS_DEVELOPMENT_ENV
+    IS_DEVELOPMENT_ENV,
 } from "../../Config"
 import { Planet as PlanetClass } from '../../classes/Planet'
 import { Planet as PlanetComponent} from '../Planet'
 import axios from "axios";
+import buildTitle from "../../functions/buildTitle";
 
-export default function Planet(){
+export default function Planet({ title }){
     let params = useParams();
     const [planet, setPlanet] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     const [hasError, setHasError] = useState(false)
     const [Error, setError] = useState('')
+
+    useEffect(() => {
+        document.title = buildTitle(title, planet?.name);
+    }, [title, planet.name]);
 
     useEffect(() => {
         fetchPlanet()

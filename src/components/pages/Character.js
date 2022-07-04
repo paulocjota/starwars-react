@@ -4,13 +4,18 @@ import { API_BASE_URL, DEFAULT_ERROR_MESSAGE, IS_DEVELOPMENT_ENV } from "../../C
 import { Character as CharacterClass } from '../../classes/Character'
 import { Character as CharacterComponent} from '../Character'
 import axios from "axios";
+import buildTitle from "../../functions/buildTitle";
 
-export default function Character(){
+export default function Character({ title }){
     let params = useParams();
     const [character, setCharacter] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     const [hasError, setHasError] = useState(false)
     const [Error, setError] = useState('')
+
+    useEffect(() => {
+        document.title = buildTitle(title, character?.name);
+    }, [title, character.name]);
 
     useEffect(() => {
         fetchCharacter()

@@ -5,8 +5,9 @@ import { Character as CharacterClass } from '../../classes/Character'
 import axios from "axios";
 import _ from 'lodash'
 import buildSearchParams from "../../functions/buildSearchParams";
+import buildTitle from "../../functions/buildTitle";
 
-export default function Characters(){
+export default function Characters({ title }){
     const [isLoading, setIsLoading] = useState(true)
     const [hasError, setHasError] = useState(false)
     const [Error, setError] = useState('')
@@ -14,6 +15,10 @@ export default function Characters(){
     const [totalCount, setTotalCount] = useState(0)
     const [searchTerm, setSearchTerm] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
+
+    useEffect(() => {
+        document.title = buildTitle(title);
+    }, [title]);
 
     useEffect(() => {
         fetchCharacters()
