@@ -6,7 +6,7 @@ export const ImgWrapper = styled.div`
     display: flex;
     justify-content: center;
     animation-name: zoom-in-down;
-    animation-duration: 1s;
+    animation-duration: 2s;
     animation-fill-mode: both;
     & img{
         display: block;
@@ -21,7 +21,7 @@ export const P = styled.p`
     line-height: 2.2rem;
     text-align: justify;
     text-justify: inter-word;
-    animation: fade-in-bck 0.6s 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in-bck 0.6s 1.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     margin: 1rem;
     margin-bottom: 2rem;
     @media(min-width: ${({ theme }) => theme.screens.lg}){
