@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { API_BASE_URL, IS_DEVELOPMENT_ENV } from "../../Config"
+import { API_BASE_URL, DEFAULT_ERROR_MESSAGE, IS_DEVELOPMENT_ENV } from "../../Config"
 import { Character as CharacterClass } from '../../classes/Character'
 import { Character as CharacterComponent} from '../Character'
 import axios from "axios";
@@ -29,7 +29,7 @@ export default function Character(){
             setHasError(true)
             setError(IS_DEVELOPMENT_ENV ?
                 'Ocorreu um erro: ' + error.message :
-                'Ocorreu um erro! Por favor, tente atualizar a página através do botão F5 ou tente novamente mais tarde.'
+                DEFAULT_ERROR_MESSAGE
             )
         }
         setIsLoading(false)
