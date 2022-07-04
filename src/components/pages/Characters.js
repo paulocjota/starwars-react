@@ -60,7 +60,7 @@ export default function Characters({ title }){
             )
         }
         setIsLoading(false)
-    }, 1500)
+    }, 500)
 
     return (
         <CharactersComponent

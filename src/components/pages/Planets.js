@@ -66,7 +66,7 @@ export default function Planets({ title }){
             )
         }
         setIsLoading(false)
-    }, 1500)
+    }, 500)
 
     return (
         <PlanetsComponent
