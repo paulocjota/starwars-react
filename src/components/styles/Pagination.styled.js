@@ -34,6 +34,10 @@ const Li = styled.li`
 `
 
 export const LiBody = styled(Li)`
+    display: none;
+    @media(min-width: ${({ theme }) => theme.screens.sm}){
+        display: flex;
+    }
     ${props => props.currentPage ? `
         background-color: ${props.theme.colors.secondary};
         color: ${props.theme.colors.primary};
@@ -44,12 +48,36 @@ export const EllipsisBody = styled(Li)`
     background-color: transparent;
     pointer-events: none;
     color: ${({ theme }) => theme.colors.primary};
+    display: none;
+    @media(min-width: ${({ theme }) => theme.screens.sm}){
+        display: flex;
+    }
 `
 
 export const ArrowLeftBody = styled(Li)`
+    min-width: 6rem;
+    &::after{
+        content: 'Anterior';
+    }
+    @media(min-width: ${({ theme }) => theme.screens.sm}){
+        min-width: unset;
+        &::after{
+            content: ''
+        }
+    }
 `
 
 export const ArrowRightBody = styled(Li)`
+min-width: 6rem;
+    &::before{
+        content: 'Próximo';
+    }
+    @media(min-width: ${({ theme }) => theme.screens.sm}){
+        min-width: unset;
+        &::before{
+            content: ''
+        }
+    }
 `
 
 export const ChevronLeftIcon = styled(ChevronLeftIconUninstyled)`
@@ -58,4 +86,11 @@ export const ChevronLeftIcon = styled(ChevronLeftIconUninstyled)`
 
 export const ChevronRightIcon = styled(ChevronRightIconUninstyled)`
     max-width: 1rem;
+`
+
+export const CurrentPage = styled(Li)`
+    display: flex;
+    @media(min-width: ${({ theme }) => theme.screens.sm}){
+        display: none;
+    }
 `

@@ -5,6 +5,8 @@ import Li from './Li'
 import ArrowLeft from './ArrowLeft';
 import ArrowRight from './ArrowRight';
 import Ellipsis from './Ellipsis';
+import { CurrentPage } from '../styles/Pagination.styled'
+
 const Pagination = props => {
     const {
         onPageChange,
@@ -35,33 +37,37 @@ const Pagination = props => {
 
     let lastPage = paginationRange[paginationRange.length - 1];
     return (
-        <Ul>
-            <ArrowLeft
-                disabled={currentPage === 1}
-                onClick={onPrevious}
-            />
+        <>
+            <Ul>
+                <ArrowLeft
+                    disabled={currentPage === 1}
+                    onClick={onPrevious}
+                />
 
-            {paginationRange.map((pageNumber, index) => {
-                if (pageNumber === DOTS) {
-                    return <Ellipsis key={index} />;
-                }
+                <CurrentPage disabled>{currentPage}</CurrentPage>
 
-                return (
-                    <Li
-                        key={index}
-                        currentPage={pageNumber === currentPage}
-                        onClick={() => onPageChange(pageNumber)}
-                    >
-                        {pageNumber}
-                    </Li>
-                );
-            })}
+                {paginationRange.map((pageNumber, index) => {
+                    if (pageNumber === DOTS) {
+                        return <Ellipsis key={index} />;
+                    }
 
-            <ArrowRight
-                disabled={currentPage === lastPage}
-                onClick={onNext}
-            />
-        </Ul>
+                    return (
+                        <Li
+                            key={index}
+                            currentPage={pageNumber === currentPage}
+                            onClick={() => onPageChange(pageNumber)}
+                        >
+                            {pageNumber}
+                        </Li>
+                    );
+                })}
+
+                <ArrowRight
+                    disabled={currentPage === lastPage}
+                    onClick={onNext}
+                />
+            </Ul>
+        </>
     );
 };
 
